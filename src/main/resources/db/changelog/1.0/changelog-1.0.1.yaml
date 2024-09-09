@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create product table
+      author: Elnur Hasanov
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: decimal
+                  constraints:
+                    nullable: false
+              - column:
+                  name: birthday
+                  type: Date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: in_stock
+                  type: decimal
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_active
+                  type: boolean
+                  defaultValueBoolean: false
+              - column:
+                  name: is_deleted
+                  type: boolean
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: timestamp of when the record was created
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: timestamp of when the record was last updated
+                  constraints:
+                    nullable: false
+              - column:
+                  name: category_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_product_to_category
+                    references: category(id)
+                    nullable: false
+
+            remarks: Table to store product information
