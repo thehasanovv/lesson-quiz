@@ -3,6 +3,7 @@ package az.atl.lessonquiz.controller;
 import az.atl.lessonquiz.model.request.SaveCategoryRequest;
 import az.atl.lessonquiz.model.response.CategoryAllInfoResponse;
 import az.atl.lessonquiz.model.response.CategoryResponse;
+import az.atl.lessonquiz.model.response.ProductResponse;
 import az.atl.lessonquiz.service.CategoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

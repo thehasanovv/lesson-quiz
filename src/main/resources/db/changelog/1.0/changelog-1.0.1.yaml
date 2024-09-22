@@ -51,6 +51,7 @@ databaseChangeLog:
                   name: updated_at
                   type: timestamp
                   defaultValue: now()
+                  # defaultValueComputed
                   remarks: timestamp of when the record was last updated
                   constraints:
                     nullable: false
@@ -63,3 +64,4 @@ databaseChangeLog:
                     nullable: false
 
             remarks: Table to store product information
+

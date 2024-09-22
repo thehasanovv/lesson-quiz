@@ -8,6 +8,9 @@ import az.atl.lessonquiz.model.response.CategoryResponse;
 import az.atl.lessonquiz.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +24,7 @@ import static az.atl.lessonquiz.mapper.CategoryMapper.CATEGORY_MAPPER;
 @Slf4j
 public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
+    private final RedisTemplate<String, Object> redisTemplate;
 
     @Override
     public CategoryResponse getCategoryById(Long id) {
